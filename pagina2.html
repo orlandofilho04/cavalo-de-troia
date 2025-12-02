@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos - Vírus Cavalo de Troia</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .cards-integrantes {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .integrante {
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-circular {
+            width: 120px;
+            height: 120px;
+            background-color: #ddd;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid #666;
+            cursor: pointer;
+        }
+
+        .card-circular img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .texto-abaixo {
+            margin-top: 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ----- MODAL ----- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="pagina2.html" class="active">Quem Somos</a></li>
+                <li><a href="noticias.html">Notícias</a></li>
+                <li><a href="protecao.html">Como se Proteger</a></li>
+                 <li><a href="jogo.html">Quiz</a></li>
+                <li><a href="https://www.instagram.com/cavalodetroia_cepirsa/" target="_blank">Instagram</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-light">
+            <div class="container">
+                <h1>Sobre o Grupo</h1>
+
+                <div class="cards-integrantes">
+
+                    <!-- MODELO NOVO USANDO DATA-* 100% FUNCIONAL -->
+                    <div class="integrante">
+                        <div class="card-circular" 
+                             data-img="ana c.jpg"
+                             data-text="Ana Clara<br>16 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Gosto de passar tempo jogando jogos online.">
+                            <img src="ana c.jpg">
+                        </div>
+                        <div class="texto-abaixo">Ana Clara 
+                            <p>16 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br> Faço curso técnico de desenvolvimento web cyber segurança.<br> Gosto de passar tempo jogando jogos online.</p>
+                        </div>
+                    </div>
+
+                    <div class="integrante">
+                        <div class="card-circular" 
+                             data-img="eloa c.jpg"
+                             data-text="Eloá Cristina<br>17 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Tenho como hobby me maquiar.">
+                            <img src="eloa c.jpg">
+                        </div>
+                        <div class="texto-abaixo">Eloá Cristina 
+                            <p>17 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Tenho como hobby me maquiar.</p>
+                        </div>
+                    </div>
+
+                    <div class="integrante">
+                        <div class="card-circular" 
+                             data-img="eloa g.jpg"
+                             data-text="Eloá Gomes<br>17 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Gosto de ouvir músicas, tocar violão e viajar.">
+                            <img src="eloa g.jpg">
+                        </div>
+                        <div class="texto-abaixo">Eloá Gomes 
+                            <p>17 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Gosto de ouvir músicas, tocar violão e viajar.</p>
+                        </div>
+                    </div>
+
+                    <div class="integrante">
+                        <div class="card-circular" 
+                             data-img="joao g.jpg"
+                             data-text="João Gabriel<br>16 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.">
+                            <img src="joao g.jpg">
+                        </div>
+                        <div class="texto-abaixo">João Gabriel 
+                            <p>16 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Gosto de ver séries, jogos online, ir na academia e dormir.</p>
+                        </div>
+                    </div>
+
+                    <div class="integrante">
+                        <div class="card-circular" 
+                             data-img="joao p.jpg"
+                             data-text="João Pedro<br>16 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Gosto de desenhar e ouvir músicas.">
+                            <img src="joao p.jpg">
+                        </div>
+                        <div class="texto-abaixo">João Pedro 
+                            <p>16 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Gosto de desenhar e ouvir músicas.</p>
+                        </div>
+                    </div>
+
+                    <div class="integrante">
+                        <div class="card-circular" 
+                             data-img="joao v.jpg"
+                             data-text="João Vitor<br>16 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.">
+                            <img src="joao v.jpg">
+                        </div>
+                        <div class="texto-abaixo">João Vitor 
+                            <p>16 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br> Gosto de carros e ouvir músicas</p>
+                        </div>
+                    </div>
+
+                    <div class="integrante">
+                        <div class="card-circular" 
+                             data-img="marcely.jpg"
+                             data-text="Marcely Cristine<br>18 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Gosto de ver séries e cozinhar.">
+                            <img src="marcely.jpg">
+                        </div>
+                        <div class="texto-abaixo">Marcely Cristine 
+                            <p>18 anos<br>Estuda na escola CEPI Raimundo Santana Amaral<br>Faço curso técnico de desenvolvimento web cyber segurança.<br>Gosto de ver séries e cozinhar.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a href="index.html" class="btn">Voltar para Início</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Grupo de Estudos - Vírus Cavalo de Troia</p>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <img id="modal-img" src="">
+            <p id="modal-text"></p>
+            <button class="close-btn" onclick="fecharModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // abrir modal ao clicar
+        document.querySelectorAll(".card-circular").forEach(card => {
+            card.additionally = card.addEventListener("click", () => {
+                document.getElementById("modal-img").src = card.dataset.img;
+                document.getElementById("modal-text").innerHTML = card.dataset.text;
+                document.getElementById("modal").style.display = "flex";
+            });
+        });
+
+        function fecharModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

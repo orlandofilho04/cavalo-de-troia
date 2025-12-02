@@ -1,0 +1,240 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questionário - Cavalo de Troia</title>
+
+<style>
+  /* ==========================================
+   ESTILO PREMIUM — CYBERSECURITY / TROJAN
+   Interface limpa, séria, corporativa
+   Visual inspirado em dashboards de segurança
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=Roboto+Mono:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #0d0d10;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #e6e6e7;
+
+    /* leve ruído elegante */
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+    opacity: 0.98;
+}
+
+/* CARD PRINCIPAL — estilo painel corporativo */
+.box {
+    width: 92%;
+    max-width: 520px;
+    padding: 34px;
+
+    background: #151518;
+    border-radius: 12px;
+
+    border: 1px solid #29292e;
+    box-shadow:
+        0 0 20px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(255, 40, 40, 0.05);
+
+    animation: slideIn 0.5s ease;
+}
+
+/* Animação discreta */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* CABEÇALHO — estilo LOG DE AMEAÇA */
+h2 {
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
+
+    color: #ff3f3f;
+    letter-spacing: 0.5px;
+
+    border-bottom: 1px solid #ff3f3f33;
+}
+
+/* Formato das perguntas */
+.question {
+    font-size: 17px;
+    line-height: 1.48;
+    margin: 20px 0;
+    color: #efefef;
+}
+
+/* BOTÕES — estilo painel moderno */
+button {
+    padding: 12px 23px;
+    margin: 8px;
+
+    background: #1c1c20;
+    border: 1px solid #303035;
+    color: #f8f8f8;
+
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Hover elegante */
+button:hover {
+    background: #27272c;
+    border-color: #ff3f3f;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 40, 40, 0.25);
+}
+
+/* Botão “próxima” com destaque de alerta */
+#next-btn {
+    background: #211416;
+    border-color: #ff3f3f55;
+}
+
+#next-btn:hover {
+    background: #2e191b;
+    border-color: #ff3f3f;
+}
+
+/* RESULTADO — interface forense */
+.result {
+    margin-top: 20px;
+    font-size: 19px;
+    font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* INDICADORES DE RISCO — Cores profissionais */
+.safe {
+    color: #7dffae;
+    text-shadow: 0 0 8px rgba(50, 255, 150, 0.25);
+}
+.medium {
+    color: #ffe07f;
+    text-shadow: 0 0 8px rgba(255, 230, 130, 0.25);
+}
+.danger {
+    color: #ff6c6c;
+    text-shadow: 0 0 8px rgba(255, 70, 70, 0.3);
+}
+
+</style>
+</head>
+<body>
+
+<div class="box" id="quiz-box">
+    <h2>Você Cairia no Golpe do Cavalo de Troia?</h2>
+
+    <div id="question-area"></div>
+
+    <button id="next-btn" style="display:none;" onclick="nextQuestion()">Próxima</button>
+</div>
+
+<script>
+    const questions = [
+        {
+            q: "Você baixaria um app de jogos grátis em um site que não é da loja oficial?",
+            bad: true
+        },
+        {
+            q: "Você clicaria em um link que promete ganhar diamantes no Free Fire?",
+            bad: true
+        },
+        {
+            q: "Você usa senhas fracas como 1234 ou seu nome?",
+            bad: true
+        },
+        {
+            q: "Você lê as permissões antes de instalar um app?",
+            bad: false
+        },
+        {
+            q: "Você atualiza o celular e os apps sempre que aparece atualização?",
+            bad: false
+        },
+        {
+            q: "Você já instalou versões modificadas de apps (WhatsApp GB, Instagram mod)?",
+            bad: true
+        }
+    ];
+
+    let index = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        document.getElementById("next-btn").style.display = "none";
+        let box = document.getElementById("question-area");
+        let q = questions[index];
+
+        box.innerHTML = `
+            <p class="question">${q.q}</p>
+
+            <button onclick="answer(true)">SIM</button>
+            <button onclick="answer(false)">NÃO</button>
+        `;
+    }
+
+    function answer(choice) {
+        let q = questions[index];
+        
+        if (choice && q.bad) score++;
+        if (!choice && !q.bad) score++;
+
+        document.getElementById("next-btn").style.display = "block";
+    }
+
+    function nextQuestion() {
+        index++;
+        if (index < questions.length) {
+            loadQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        let box = document.getElementById("quiz-box");
+        let msg = "";
+        let cls = "";
+
+        if (score <= 2) {
+            msg = "⚠️ Você provavelmente cairia no golpe! 🐴💀";
+            cls = "danger";
+        } else if (score <= 4) {
+            msg = "😬 Você até se protege… mas ainda corre riscos!";
+            cls = "medium";
+        } else {
+            msg = "🎉 Você está bem protegido! Difícil cair em Cavalo de Troia.";
+            cls = "safe";
+        }
+
+        box.innerHTML = `
+            <h2>RESULTADO FINAL</h2>
+            <p class="result ${cls}">${msg}</p>
+            <p>Sua pontuação: <strong>${score}/${questions.length}</strong></p>
+            <button onclick="location.reload()">Jogar novamente</button>
+        `;
+    }
+
+    loadQuestion();
+</script>
+
+</body>
+</html>

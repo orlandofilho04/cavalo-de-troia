@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vírus Cavalo de Troia</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS ADICIONADO PARA PLANO DE FUNDO DOS CARDS -->
+    <style>
+        .card {
+            background-image: url('https://www.shutterstock.com/image-vector/cyber-security-bit-hacker-network-600nw-2123769968.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .card p {
+            max-height: 80px;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- MODAL PARA O CARD AMPLIADO --- */
+        .card-zoom-bg {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .card-zoom {
+            width: 70%;
+            max-width: 600px;
+            padding: 30px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            color: white;
+            text-align: left;
+            animation: zoomIn 0.3s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: white;
+            color: black;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .card-zoom p, .card-zoom ul {
+            line-height: 1.5;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="pagina2.html">Quem Somos</a></li>
+                <li><a href="noticias.html">Notícias</a></li>
+                <li><a href="protecao.html">Como se Proteger</a></li>
+                <li><a href="jogo.html">Quiz</a></li>
+
+                <li><a href="https://www.instagram.com/cavalodetroia_cepirsa/" target="_blank">Instagram</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="sobre" class="section-light">
+            <div class="container">
+                <h1>Vírus Cavalo de Troia</h1>
+                <p>O vírus Cavalo de Troia é um tipo de malware que se disfarça como software legítimo, permitindo que invasores acessem seu computador sem permissão. Ele pode roubar informações, danificar arquivos e comprometer sua segurança digital.</p>
+                <button id="btn-sobre" class="btn">Saiba Mais</button>
+            </div>
+        </section>
+
+        <section id="noticias" class="section-dark">
+            <div class="container">
+                <h2>Últimas Notícias</h2>
+                <div class="cards">
+                    <div class="card" data-title="Ataques recentes" data-text="Exemplos recentes de ataques com cavalos de Troia incluem:
+- Maverick (2025): Nova variante de trojan bancário no Brasil, mais de 62 mil tentativas de ataque bloqueadas. Fonte: itsection.com.br
+- Campanha via WhatsApp com Astaroth/Guildma (set/2025): Envio de anexos maliciosos pelo WhatsApp para roubo de credenciais. Fonte: news.sophos.com
+- Surto de trojans bancários no Brasil (1º trimestre de 2025): Spy.Guildma.CU e Spy.Delf.RAY lideraram as detecções. Fonte: eset.com
+- Aumento de trojans bancários em Android (1º semestre 2025): ataques quase quadruplicaram. Fonte: techenet.com
+- Crescimento global de trojans (2024 → 2025): aumento de 33% nas detecções globais. Fonte: kaspersky.com">
+                        <h3>Ataques recentes</h3>
+                        <p>Exemplos recentes de ataques com cavalos de Troia incluem:
+                        <br>- Maverick (2025): Nova variante de trojan bancário no Brasil, mais de 62 mil tentativas de ataque bloqueadas. Fonte: itsection.com.br
+                        <br>- Campanha via WhatsApp com Astaroth/Guildma (set/2025): Envio de anexos maliciosos pelo WhatsApp para roubo de credenciais. Fonte: news.sophos.com
+                        <br>- Surto de trojans bancários no Brasil (1º trimestre de 2025): Spy.Guildma.CU e Spy.Delf.RAY lideraram as detecções. Fonte: eset.com
+                        <br>- Aumento de trojans bancários em Android (1º semestre 2025): ataques quase quadruplicaram. Fonte: techenet.com
+                        <br>- Crescimento global de trojans (2024 → 2025): aumento de 33% nas detecções globais. Fonte: kaspersky.com
+                        </p>
+                    </div>
+
+                    <div class="card" data-title="Alerta de phishing" data-text="Golpes de phishing envolvendo cavalos de Troia têm se intensificado. Cibercriminosos enviam e-mails falsos, mensagens ou links que parecem legítimos para induzir usuários a fornecerem credenciais ou instalar malware. Esses ataques visam especialmente bancos, plataformas de pagamento e redes sociais, podendo comprometer dados financeiros e pessoais.">
+                        <h3>Alerta de phishing</h3>
+                        <p>Golpes de phishing envolvendo cavalos de Troia têm se intensificado. Cibercriminosos enviam e-mails falsos, mensagens ou links que parecem legítimos para induzir usuários a fornecerem credenciais ou instalar malware. Esses ataques visam especialmente bancos, plataformas de pagamento e redes sociais, podendo comprometer dados financeiros e pessoais.</p>
+                    </div>
+
+                    <div class="card" data-title="Proteção avançada" data-text="Ferramentas de proteção avançadas contra cavalos de Troia incluem antivírus com detecção heurística, firewalls inteligentes, sistemas de monitoramento de rede e soluções de análise de comportamento de arquivos. Essas tecnologias identificam e bloqueiam malware mesmo antes que assinaturas conhecidas estejam disponíveis, aumentando a segurança contra ataques sofisticados.">
+                        <h3>Proteção avançada</h3>
+                        <p>Ferramentas de proteção avançadas contra cavalos de Troia incluem antivírus com detecção heurística, firewalls inteligentes, sistemas de monitoramento de rede e soluções de análise de comportamento de arquivos. Essas tecnologias identificam e bloqueiam malware mesmo antes que assinaturas conhecidas estejam disponíveis, aumentando a segurança contra ataques sofisticados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO "Como se Proteger" COMO CARD CLICÁVEL -->
+        <section id="protecao" class="section-light">
+            <div class="container">
+                <h2>Como se Proteger</h2>
+                <div class="card" id="card-protecao" style="height:auto; max-height: none; padding: 20px; cursor:pointer;">
+                    <ul style="margin:0; padding-left:20px;">
+                        <li>Mantenha seu antivírus sempre atualizado.</li>
+                        <li>Evite clicar em links suspeitos de e-mails desconhecidos.</li>
+                        <li>Faça backups regulares dos seus arquivos.</li>
+                        <li>Use senhas fortes e autenticação em dois fatores.</li>
+                        <li>Mantenha o sistema operacional e softwares sempre atualizados.</li>
+                        <li>Não baixe arquivos ou aplicativos de fontes desconhecidas.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container">
+                <a href="pagina2.html" class="btn">Saiba Mais Sobre Nós</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Grupo de Estudos - Vírus Cavalo de Troia</p>
+    </footer>
+
+    <!-- MODAL DOS CARDS -->
+    <div class="card-zoom-bg" id="zoom-bg">
+        <div class="card-zoom" id="zoom-card">
+            <h2 id="zoom-title"></h2>
+            <p id="zoom-text"></p>
+            <button class="close-btn" onclick="closeZoom()">Fechar</button>
+        </div>
+    </div>
+
+    <!-- MODAL INTERATIVO PARA SOBRE -->
+    <div class="card-zoom-bg" id="sobre-modal-bg">
+        <div class="card-zoom" id="sobre-modal-card" style="background-image: url('https://www.shutterstock.com/image-vector/cyber-security-bit-hacker-network-600nw-2123769968.jpg');">
+            <h2>Sobre o Vírus Cavalo de Troia</h2>
+            <p>
+                O vírus Cavalo de Troia é um malware que se disfarça como software legítimo. Ele pode roubar dados, danificar arquivos e permitir que hackers controlem seu computador.
+                <br><br>
+                Os ataques recentes mostram que cavalos de Troia estão cada vez mais sofisticados, utilizando phishing, e-mails falsos e anexos maliciosos para enganar usuários.
+                <br><br>
+                A melhor defesa é a conscientização: nunca abra links suspeitos, mantenha seu antivírus atualizado e utilize autenticação de múltiplos fatores sempre que possível.
+            </p>
+            <button class="close-btn" onclick="closeSobreModal()">Fechar</button>
+        </div>
+    </div>
+
+    <!-- MODAL "Como se Proteger" -->
+    <div class="card-zoom-bg" id="protecao-modal-bg">
+        <div class="card-zoom" id="protecao-modal-card" style="background-image: url('https://www.shutterstock.com/image-vector/cyber-security-bit-hacker-network-600nw-2123769968.jpg');">
+            <h2>Como se Proteger</h2>
+            <ul>
+                <li>Mantenha seu antivírus sempre atualizado.</li>
+                <li>Evite clicar em links suspeitos de e-mails desconhecidos.</li>
+                <li>Faça backups regulares dos seus arquivos.</li>
+                <li>Use senhas fortes e autenticação em dois fatores.</li>
+                <li>Mantenha o sistema operacional e softwares sempre atualizados.</li>
+                <li>Não baixe arquivos ou aplicativos de fontes desconhecidas.</li>
+            </ul>
+            <button class="close-btn" onclick="closeProtecaoModal()">Fechar</button>
+        </div>
+    </div>
+
+    <!-- SCRIPT PARA INTERATIVIDADE -->
+    <script>
+        // Cards
+        const cards = document.querySelectorAll(".card");
+        const zoomBg = document.getElementById("zoom-bg");
+        const zoomCard = document.getElementById("zoom-card");
+        const zoomTitle = document.getElementById("zoom-title");
+        const zoomText = document.getElementById("zoom-text");
+
+        cards.forEach(card => {
+            card.addEventListener("click", () => {
+                if(card.id !== "card-protecao") { // ignora o card "Como se Proteger"
+                    zoomBg.style.display = "flex";
+                    zoomCard.style.backgroundImage = card.style.backgroundImage;
+                    zoomTitle.innerText = card.getAttribute("data-title");
+                    zoomText.innerText = card.getAttribute("data-text");
+                }
+            });
+        });
+
+        function closeZoom() {
+            zoomBg.style.display = "none";
+        }
+
+        // Sobre Modal
+        const btnSobreModal = document.getElementById("btn-sobre");
+        const sobreModalBg = document.getElementById("sobre-modal-bg");
+
+        btnSobreModal.addEventListener("click", () => {
+            sobreModalBg.style.display = "flex";
+        });
+
+        function closeSobreModal() {
+            sobreModalBg.style.display = "none";
+        }
+
+        // "Como se Proteger" Modal
+        const cardProtecao = document.getElementById("card-protecao");
+        const protecaoModalBg = document.getElementById("protecao-modal-bg");
+
+        cardProtecao.addEventListener("click", () => {
+            protecaoModalBg.style.display = "flex";
+        });
+
+        function closeProtecaoModal() {
+            protecaoModalBg.style.display = "none";
+        }
+    </script>
+</body>
+</html>

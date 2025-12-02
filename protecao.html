@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como se Proteger - Cavalo de Troia</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.card-extra {
+    background-image: url('https://www.shutterstock.com/image-vector/cyber-security-bit-hacker-network-600nw-2123769968.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    max-height: 150px;
+    overflow: hidden;
+}
+
+.card-extra:hover {
+    transform: scale(1.03);
+}
+
+/* Modal */
+.modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-card {
+    width: 70%;
+    max-width: 700px;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-card h2 {
+    margin-bottom: 15px;
+}
+
+.modal-card p, .modal-card ul {
+    line-height: 1.6;
+}
+</style>
+</head>
+
+<body>
+<header>
+<nav>
+<ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="pagina2.html">Quem Somos</a></li>
+    <li><a href="noticias.html">Notícias</a></li>
+    <li><a href="protecao.html" class="active">Como se Proteger</a></li>
+     <li><a href="jogo.html">Quiz</a></li>
+    <li><a href="https://www.instagram.com/cavalodetroia_cepirsa/" target="_blank">Instagram</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<section class="section-light">
+<div class="container">
+
+<h1>Como se Proteger</h1>
+
+<div class="card-extra" data-title="Tenha antivírus atualizado" data-text="É a principal defesa contra trojans modernos. Utilize sempre um antivírus atualizado e confiável. Para mais informações, visite <a href='https://www.av-test.org/en/' target='_blank'>AV-Test</a>.">
+    <h2>Tenha antivírus atualizado</h2>
+    <p>É a principal defesa contra trojans modernos.</p>
+</div>
+
+<div class="card-extra" data-title="Cuidado com links suspeitos" data-text="Evite clicar em links recebidos por e-mail, WhatsApp ou redes sociais de remetentes desconhecidos. Saiba mais em <a href='https://www.consumer.ftc.gov/articles/how-recognize-and-avoid-phishing-scams' target='_blank'>FTC Phishing Guide</a>.">
+    <h2>Cuidado com links suspeitos</h2>
+    <p>A maioria das infecções ocorre por links recebidos via e-mail ou WhatsApp.</p>
+</div>
+
+<div class="card-extra" data-title="Use autenticação em duas etapas" data-text="Ative a autenticação em duas etapas sempre que possível. Mesmo que sua senha seja roubada, o criminoso não acessa sua conta. Guia oficial: <a href='https://www.google.com/landing/2step/' target='_blank'>Google 2-Step</a>.">
+    <h2>Use autenticação em duas etapas</h2>
+    <p>Mesmo que sua senha seja roubada, o criminoso não acessa sua conta.</p>
+</div>
+
+<div class="card-extra" data-title="Baixe aplicativos apenas de fontes confiáveis" data-text="Evite sites desconhecidos e apps modificados. Sempre use lojas oficiais como Google Play ou Apple App Store. Mais informações em <a href='https://www.consumer.ftc.gov/articles/0013-tips-using-apps-safely' target='_blank'>Tips for Safe Apps</a>.">
+    <h2>Baixe aplicativos apenas de fontes confiáveis</h2>
+    <p>Evite sites desconhecidos e apps modificados.</p>
+</div>
+
+<a href="index.html" class="btn">Voltar</a>
+
+</div>
+</section>
+</main>
+
+<footer>
+<p>&copy; 2025 Grupo de Estudos - Vírus Cavalo de Troia</p>
+</footer>
+
+<!-- Modal -->
+<div class="modal-bg" id="modal-bg">
+    <div class="modal-card" id="modal-card">
+        <h2 id="modal-title"></h2>
+        <p id="modal-text"></p>
+        <button class="close-btn" onclick="closeModal()">Fechar</button>
+    </div>
+</div>
+
+<script>
+const cards = document.querySelectorAll(".card-extra");
+const modalBg = document.getElementById("modal-bg");
+const modalTitle = document.getElementById("modal-title");
+const modalText = document.getElementById("modal-text");
+
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        modalBg.style.display = "flex";
+        modalTitle.innerText = card.dataset.title;
+        modalText.innerHTML = card.dataset.text; // permite links HTML
+    });
+});
+
+function closeModal() {
+    modalBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
